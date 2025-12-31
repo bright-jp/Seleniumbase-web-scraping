@@ -1,6 +1,6 @@
 # SeleniumBase を使った Webスクレイピング
 
-[![Promo](https://github.com/luminati-io/LinkedIn-Scraper/blob/main/Proxies%20and%20scrapers%20GitHub%20bonus%20banner.png)](https://brightdata.jp)
+[![Promo](https://github.com/bright-jp/LinkedIn-Scraper/blob/main/Proxies%20and%20scrapers%20GitHub%20bonus%20banner.png)](https://brightdata.jp)
 
 SeleniumBase の高度な機能とステップバイステップガイドを使って、Webスクレイピングをシンプルにします。Selenium を使った Webスクレイピングに興味がありますか？[こちらのガイド](https://brightdata.jp/blog/how-tos/using-selenium-for-web-scraping)をご確認ください。
 
