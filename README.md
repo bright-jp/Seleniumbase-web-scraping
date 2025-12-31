@@ -1,32 +1,32 @@
-# Web Scraping With SeleniumBase
+# SeleniumBase を使った Webスクレイピング
 
-[![Promo](https://github.com/luminati-io/LinkedIn-Scraper/blob/main/Proxies%20and%20scrapers%20GitHub%20bonus%20banner.png)](https://brightdata.com)
+[![Promo](https://github.com/luminati-io/LinkedIn-Scraper/blob/main/Proxies%20and%20scrapers%20GitHub%20bonus%20banner.png)](https://brightdata.jp)
 
-Simplify web scraping with SeleniumBase using its advanced features and step-by-step guide. Interested in Selenium web scraping? Check out [this guide](https://brightdata.com/blog/how-tos/using-selenium-for-web-scraping).
+SeleniumBase の高度な機能とステップバイステップガイドを使って、Webスクレイピングをシンプルにします。Selenium を使った Webスクレイピングに興味がありますか？[こちらのガイド](https://brightdata.jp/blog/how-tos/using-selenium-for-web-scraping)をご確認ください。
 
-## What Is SeleniumBase?
+## SeleniumBase とは？
 
-SeleniumBase is a Python framework for browser automation, built on top of Selenium/WebDriver APIs. It supports tasks from testing to scraping and includes features like CAPTCHA bypassing and bot-detection avoidance.
+SeleniumBase は、Selenium/WebDriver API を基盤に構築されたブラウザ自動化の Python フレームワークです。テストからスクレイピングまでのタスクをサポートし、CAPTCHA のバイパスやボット検知回避などの機能を備えています。
 
-## SeleniumBase vs Selenium: Feature and API Comparison
+## SeleniumBase vs Selenium: 機能と API の比較
 
 | Feature                  | SeleniumBase                                      | Selenium                                    |
 |--------------------------|---------------------------------------------------|---------------------------------------------|
-| Built-in test runners    | Integrates with pytest, pynose, and behave        | Requires manual setup for test integration  |
-| Driver management        | Auto-downloads matching browser driver            | Manual download and configuration           |
-| Web automation logic     | Combines steps into single method call            | Requires multiple lines of code             |
-| Selector handling        | Auto-detects CSS or XPath selectors               | Requires explicit selector types            |
-| Timeout handling         | Default timeouts to prevent failures              | Immediate failures without explicit timeouts|
-| Error outputs            | Clean, readable error messages                    | Verbose, less interpretable error logs      |
-| Dashboards and reports   | Built-in dashboards, reports, and screenshots     | No built-in dashboards or reporting         |
-| Desktop GUI applications | Visual tools for test running                     | Lacks desktop GUI tools                     |
-| Test recorder            | Built-in test recorder                            | Requires manual script writing              |
-| Test case management     | Provides CasePlans                                | No built-in test case management            |
-| Data app support         | Includes ChartMaker for data apps                 | No additional tools for data apps           |
+| Built-in test runners    | pytest、pynose、behave と統合                      | テスト統合には手動セットアップが必要         |
+| Driver management        | 一致するブラウザドライバーを自動ダウンロード       | 手動ダウンロードと設定                      |
+| Web automation logic     | 手順を単一メソッド呼び出しにまとめられる           | 複数行のコードが必要                        |
+| Selector handling        | CSS または XPath セレクターを自動検出              | セレクター種別を明示する必要がある          |
+| Timeout handling         | 失敗を防ぐためのデフォルトのタイムアウト           | 明示的なタイムアウトがないと即時失敗         |
+| Error outputs            | クリーンで読みやすいエラーメッセージ               | 冗長で解釈しにくいエラーログ                |
+| Dashboards and reports   | ダッシュボード、レポート、スクリーンショット内蔵   | ダッシュボードやレポート機能は内蔵されない  |
+| Desktop GUI applications | テスト実行のためのビジュアルツール                 | デスクトップ GUI ツールがない               |
+| Test recorder            | テストレコーダー内蔵                               | スクリプトの手動作成が必要                   |
+| Test case management     | CasePlans を提供                                   | テストケース管理は内蔵されない              |
+| Data app support         | データアプリ向けに ChartMaker を含む               | データアプリ向け追加ツールはない            |
 
-## Using SeleniumBase for Web Scraping: Step-By-Step Guide
+## Webスクレイピングに SeleniumBase を使う方法: ステップバイステップガイド
 
-### Step #1: Project Initialization
+### Step #1: プロジェクトの初期化
 
 ```bash
 mkdir seleniumbase-scraper
@@ -34,18 +34,18 @@ cd seleniumbase-scraper
 python -m venv env
 ```
 
-Activate the virtual environment:
+仮想環境を有効化します:
 
-- On Linux/macOS: `./env/bin/activate`
-- On Windows: `env/Scripts/activate`
+- Linux/macOS の場合: `./env/bin/activate`
+- Windows の場合: `env/Scripts/activate`
 
-Install SeleniumBase:
+SeleniumBase をインストールします:
 
 ```bash
 pip install seleniumbase
 ```
 
-### Step #2: SeleniumBase Test Setup
+### Step #2: SeleniumBase テストのセットアップ
 
 ```python
 from seleniumbase import SB
@@ -54,25 +54,25 @@ with SB() as sb:
     pass
 ```
 
-Run the script:
+スクリプトを実行します:
 
 ```bash
 python3 scraper.py --headless
 ```
 
-### Step #3: Connect to the Target Page
+### Step #3: 対象ページに接続する
 
 ```python
 sb.open("https://quotes.toscrape.com/")
 ```
 
-### Step #4: Select the Quote Elements
+### Step #4: Quote 要素を選択する
 
 ```python
 quote_elements = sb.find_elements(".quote")
 ```
 
-### Step #5: Scrape Quote Data
+### Step #5: Quote データをスクレイピングする
 
 ```python
 from selenium.webdriver.common.by import By
@@ -85,20 +85,20 @@ for quote_element in quote_elements:
     tags = [tag.text for tag in quote_element.find_elements(By.CSS_SELECTOR, ".tag")]
 ```
 
-### Step #6: Populate the Quotes Array
+### Step #6: Quotes 配列を埋める
 
 ```python
 quotes.append({"text": text, "author": author, "tags": tags})
 ```
 
-### Step #7: Implement Crawling Logic
+### Step #7: クローリングロジックを実装する
 
 ```python
 while sb.is_element_present(".next"):
     sb.click(".next a")
 ```
 
-### Step #8: Export the Scraped Data
+### Step #8: スクレイピングしたデータをエクスポートする
 
 ```python
 import csv
@@ -110,7 +110,7 @@ with open("quotes.csv", mode="w", newline="", encoding="utf-8") as file:
         writer.writerow({"text": quote["text"], "author": quote["author"], "tags": ";".join(quote["tags"])})
 ```
 
-### Step #9: Put It All Together
+### Step #9: すべてをまとめる
 
 ```python
 from seleniumbase import SB
@@ -137,15 +137,15 @@ with SB() as sb:
             writer.writerow({"text": quote["text"], "author": quote["author"], "tags": ";".join(quote["tags"])})
 ```
 
-Run the scraper:
+スクレイパーを実行します:
 
 ```bash
 python3 script.py --headless
 ```
 
-## Advanced SeleniumBase Scraping Use Cases
+## SeleniumBase を使った高度なスクレイピングのユースケース
 
-### Automate Form Filling and Submission
+### フォーム入力と送信を自動化する
 
 ```python
 from seleniumbase import BaseCase
@@ -160,13 +160,13 @@ class LoginTest(BaseCase):
         self.assert_text("Top Ten tags")
 ```
 
-Run the test:
+テストを実行します:
 
 ```bash
 pytest login.py
 ```
 
-### Bypass Simple Anti-Bot Technologies
+### シンプルなアンチボット技術をバイパスする
 
 ```python
 from seleniumbase import SB
@@ -178,7 +178,7 @@ with SB(uc=True) as sb:
     sb.save_screenshot("screenshot.png")
 ```
 
-### Bypass Complex Anti-Bot Technologies
+### 複雑なアンチボット技術をバイパスする
 
 ```python
 from seleniumbase import SB
@@ -191,6 +191,6 @@ with SB(uc=True, test=True) as sb:
     sb.save_screenshot("screenshot.png")
 ```
 
-## Conclusion
+## 結論
 
-SeleniumBase offers advanced features for web scraping, including UC Mode and CDP Mode for bypassing anti-bot measures. For more robust solutions, consider using cloud-based browsers like [Scraping Browser from Bright Data](https://brightdata.com/products/scraping-browser).
+SeleniumBase は、アンチボット対策をバイパスするための UC Mode や CDP Mode など、Webスクレイピング向けの高度な機能を提供します。より堅牢なソリューションが必要な場合は、[Bright Data の Scraping Browser](https://brightdata.jp/products/scraping-browser) のようなクラウドベースのブラウザの利用をご検討ください。
